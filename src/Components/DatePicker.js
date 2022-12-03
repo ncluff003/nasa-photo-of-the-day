@@ -1,9 +1,9 @@
 import React from "react";
 
-function Date(props) {
-  const { changeDate } = props;
+function DatePicker(props) {
+  const { className, changeDate } = props;
   return (
-    <label>
+    <label className={className}>
       <p className="date-picker-label">Select Date</p>
       <input
         type="date"
@@ -18,4 +18,4 @@ function Date(props) {
   );
 }
 
-export default Date;
+export default DatePicker;

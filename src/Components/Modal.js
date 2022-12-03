@@ -1,9 +1,11 @@
 import React from "react";
+import styled from "styled-components";
 
 function Modal(props) {
-  const { data } = props;
+  const { className, data } = props;
+
   return (
-    <div className="modal">
+    <div className={className}>
       {/* <FontAwesomeIcon></FontAwesomeIcon> */}
       <img src={data.hdurl} alt="Enlarged NASA Photo" />
     </div>

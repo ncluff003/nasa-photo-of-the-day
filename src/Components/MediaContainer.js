@@ -1,8 +1,10 @@
 import React from "react";
-import Title from "./Title";
+import ReactPlayer from "react-player";
+import StyledTitle from "./ComponentStyles/Title.style";
+// import Title from "./Title";
 
 function MediaContainer(props) {
-  const { data, toggleModal, changeDate } = props;
+  const { className, data, toggleModal, changeDate } = props;
 
   if (!data) return <h2>Loading Data...</h2>;
 
@@ -19,15 +21,15 @@ function MediaContainer(props) {
         />
       );
     } else if (data.media_type === `video`) {
-      return <video className="nasa-video" src={data.url}></video>;
+      return <ReactPlayer url={data.url} controls={true} height="50rem" width="50%" />;
     }
   };
 
   return (
-    <div className="image-container">
+    <div className={className}>
       {renderCorrectMedia()}
       {/* Title Container -- Title AND Help */}
-      <Title data={data} changeDate={changeDate} />
+      <StyledTitle data={data} changeDate={changeDate} />
       {/* Explanation */}
       <p className="explanation">{data.explanation}</p>
     </div>

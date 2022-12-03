@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { DateTime } from "luxon";
-import Header from "./Header";
-import MediaContainer from "./MediaContainer";
-import Modal from "./Modal";
-import "./App.css";
+import StyledHeader from "./Components/ComponentStyles/Header.style";
+import StyledMediaContainer from "./Components/ComponentStyles/MediaContainer.style";
+import StyledModal from "./Components/ComponentStyles/Modal.style";
+import { GlobalStyles } from "./GlobalStyles.styles";
 
 function App() {
   const [nasaData, setNasaData] = useState("");
@@ -35,9 +35,10 @@ function App() {
 
   return (
     <div className="App">
-      {modalOpen && <Modal data={nasaData} />}
-      <Header data={nasaData} date={date} />
-      <MediaContainer data={nasaData} toggleModal={toggleModal} changeDate={changeDate} />
+      <GlobalStyles />
+      {modalOpen && <StyledModal data={nasaData} />}
+      <StyledHeader data={nasaData} date={date} />
+      <StyledMediaContainer data={nasaData} toggleModal={toggleModal} changeDate={changeDate} />
     </div>
   );
 }
